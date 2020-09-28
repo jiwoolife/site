@@ -1,0 +1,152 @@
+@import "_mixins.scss";
+
+@font-face {
+  font-family: "Gmarket Sans Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Gmarket Sans Bold"), local("GmarketSans-Bold"),
+    url("../fonts/GmarketSansBold.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/GmarketSansBold.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: "Gmarket Sans Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Gmarket Sans Medium"), local("GmarketSans-Medium"),
+    url("../fonts/GmarketSansMedium.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/GmarketSansMedium.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  font-family: "Gmarket Sans Medium";
+}
+$blue: #192b60;
+$beige: #fffdd7;
+$gray: #b1b5d0;
+$backGray: #ededed;
+$red: #a90103;
+
+h1 {
+  font-size: 6.5vw;
+  font-family: "Gmarket Sans Bold";
+  color: $beige;
+  margin: 1vw 0;
+}
+h2 {
+  font-size: 5vw;
+  font-family: "Gmarket Sans Bold";
+  margin: 1vw 0;
+}
+h3 {
+  font-size: 4vw;
+  margin: 1vw 0;
+}
+h4 {
+  font-size: 3.6vw;
+  margin: 1vw 0;
+}
+.bold {
+  font-family: "Gmarket Sans Bold";
+}
+h5 {
+  font-size: 2vw;
+  text-align: center;
+  color: $gray;
+  margin: 1vw 0;
+}
+.number {
+  background-color: $blue;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  color: #fdfff7;
+  font-size: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+}
+
+body {
+  margin: 0;
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $blue;
+      width: 100%;
+      height: 33vw;
+      .logo {
+        width: 40vw;
+      }
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      section.product:nth-child(2n -1) {
+        background-color: $backGray;
+      }
+      section.product {
+        padding: 2vw 0;
+        width: 100%;
+        .subtitle {
+          display: flex;
+          align-items: center;
+          margin-left: 2vw;
+        }
+        .picture {
+          margin-left: 2vw;
+          width: 30vw;
+          max-width: 252px;
+          height: 30vw;
+          max-height: 252px;
+          border-radius: 50px;
+          margin-right: 2vw;
+        }
+        .content {
+          height: 30vw;
+          display: flex;
+          // justify-content: center;
+          align-items: center;
+          .explain__top {
+            border-bottom: 1px solid $gray;
+            flex: 1;
+          }
+          .explain__bottom {
+            flex: 1;
+            select {
+              width: 50vw;
+              max-width: 418px;
+              height: 5vw;
+              max-height: 40px;
+              font-size: 2vw;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+    .btn__result {
+      border-radius: 10px;
+      margin: 3vw 0;
+      width: 95%;
+      height: 10vw;
+      background-color: $red;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+@include response-over(1024px);

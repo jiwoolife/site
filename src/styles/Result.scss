@@ -1,0 +1,19 @@
+main {
+  .result {
+    width: 80%;
+    .result__product {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+      //   & > *:first-child {
+      //     margin-left: 5vw;
+      //   }
+      //   & > *:last-child {
+      //     margin-right: 5vw;
+      //   }
+    }
+    .result__product:last-child {
+      border-bottom: none;
+    }
+  }
+}

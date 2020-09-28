@@ -1,170 +1,121 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
-import "./App.css";
-import * as html2canvas from "html2canvas";
-import { useCapture } from "react-capture";
+import "./styles/App.scss";
 import {
   BrowserRouter as Router,
   Link,
   useLocation,
   useHistory,
+  NavLink,
 } from "react-router-dom";
+import { DATA } from "./DATA.js";
 
-const FOODS = [
-  { name: "공기밥: 1000원", price: 1000 },
-  { name: "육개장: 5000원", price: 5000 },
-  { name: "편육: 10000원", price: 10000 },
-];
-const FLOWERS = [
-  { name: "장미: 3000원", price: 3000 },
-  { name: "해바라기: 6000원", price: 6000 },
-  { name: "튤립: 9000원", price: 9000 },
-];
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
-function App() {
-  // let query = useQuery();
-  // let pathname = useLocation().pathname;
-  // let history = useHistory();
-  const handleCapture = () => {
-    html2canvas(document.querySelector(":root")).then((canvas) => {
-      document.body.appendChild(canvas);
-    });
+const App = () => {
+  const [selectedProducts, setSelectedProducts] = useState({
+    p1: 0,
+    p2: 0,
+    p3: 0,
+    p4: 0,
+    p5: 0,
+    p6: 0,
+    p7: 0,
+    p8: 0,
+    p9: 0,
+    p10: 0,
+    p11: 0,
+    p12: 0,
+    p13: 0,
+    p14: 0,
+  });
+  const handleChange = ({ target: { value, id } }) => {
+    setSelectedProducts((prev) => ({ ...prev, [id]: value }));
   };
-  const { snap } = useCapture();
-  const element = useRef(null);
-
-  const handleDownload = useCallback(() => {
-    snap(element, { file: "download.png" });
-  }, [snap, element]);
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://developers.kakao.com/sdk/js/kakao.js";
-  //   script.async = true;
-  //   document.body.appendChild(script);
-  //   window.Kakao.init("a9ef4d3325bd1131b399777e2bbbc266");
-  //   console.log(window.Kakao.isInitialized());
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   };
-  // }, []);
-
   return (
     <>
-      <Router>
-        <div ref={element}>
-          <div id="capture" style={{ padding: "10px", background: "#f5da55" }}>
-            {/* <img src="https://source.unsplash.com/random/300x300"></img> */}
-            <img
-              src={require("./test.jpeg")}
-              style={{ width: "300px", height: "300px" }}
-              alt="none"
-            ></img>
-            <h4 style={{ color: "#000" }}>Capture Test</h4>
-          </div>
-          <QueryParamsDemo
-            // query={query}
-            // pathname={pathname}
-            // history={history}
-            handleDownload={handleDownload}
+      <header>
+        <img
+          className="logo"
+          src={require("./assets/logo_black.png")}
+          alt="none"
+        ></img>
+        <h1>장례 규모에 맞춘 자유선택형 상조</h1>
+        <h5>
+          본 서비스는 장례준비가 되지 않은 상황에서도 장례식 및 상조비용을
+          사전에 산출하여 규모에 맞는 용품과 서비스를 합리적으로 사용하실 수
+          있도록 개발되었습니다.
+        </h5>
+      </header>
+      <main>
+        {DATA.map((d) => (
+          <Product
+            no={d.no}
+            category={d.category}
+            products={d.products}
+            explain={d.explain}
+            selectedProducts={selectedProducts}
+            handleChange={handleChange}
           />
-        </div>
-      </Router>
+        ))}
+        <Link
+          className="btn__result"
+          to={{
+            pathname: "/result",
+            search: `?products=${btoa(JSON.stringify(selectedProducts))}`,
+          }}
+        >
+          <h2>최종 금액 확인하기</h2>
+        </Link>
+      </main>
     </>
   );
-}
+};
 
-function QueryParamsDemo({ handleDownload }) {
-  // { query, pathname, history }
-  let query = useQuery();
-  let pathname = useLocation().pathname;
-  let history = useHistory();
-
-  const [checkedFood, setCheckedFood] = useState(`food_${query.get("food")}`);
-  const [checkedFlower, setCheckedFlower] = useState(
-    `flower_${query.get("flower")}`
-  );
-
-  const onCheck = (name, value) => {
-    query.set(name, value);
-    history.push({
-      pathname: pathname,
-      search: query.toString(),
-    });
-  };
-  const shareKakao = () => {
-    console.log(window.location.href);
-    window.Kakao.Link.sendDefault({
-      objectType: "feed",
-      content: {
-        title: "추모센터",
-        description: "#추모 #센터 #장례",
-        imageUrl:
-          "http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
-        link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href,
-        },
-      },
-    });
-  };
+const Product = ({
+  no,
+  category,
+  products,
+  explain,
+  selectedProducts,
+  handleChange,
+}) => {
   return (
-    <div>
-      {FOODS.map((food, i) => (
-        <>
-          <input
-            type="radio"
-            id={`food_${i}`}
-            name="food"
-            checked={`food_${query.get("food")}` === `food_${i}`}
-            onChange={({ target: { id } }) => {
-              // setCheckedFood(id);
-              onCheck("food", i);
-            }}
-          />
-          <label htmlFor={`food_${i}`}>{food.name}</label>
-        </>
-      ))}
-      <br />
-      {FLOWERS.map((flower, i) => (
-        <>
-          <input
-            type="radio"
-            id={`flower_${i}`}
-            name="flower"
-            checked={`flower_${query.get("flower")}` === `flower_${i}`}
-            onChange={({ target: { id } }) => {
-              // setCheckedFlower(id);
-              onCheck("flower", i);
-            }}
-          />
-          <label htmlFor={`flower_${i}`}>{flower.name}</label>
-        </>
-      ))}
-      <Total foodIdx={query.get("food")} flowerIdx={query.get("flower")} />
-      <div className="button__wrapper">
-        <a href="tel:01096549799">전화연결</a>
-        <button onClick={handleDownload}>
-          저장하기(safari or chrome만 가능)
-        </button>
-        <button disabled>문자로공유</button>
-        <button onClick={shareKakao}>카톡으로공유</button>
-      </div>
-    </div>
+    <>
+      <section className="product">
+        <div className="subtitle">
+          <div className="number">{no}</div>
+          <h2>{category}</h2>
+        </div>
+        <div className="content">
+          <img
+            className="picture"
+            src={require("./assets/picture_1.jpg")}
+            alt="none"
+          ></img>
+          <div className="explain">
+            <div className="explain__top">
+              <h4 className="bold">제공내역</h4>
+              <h3>{products[0].product}</h3>
+            </div>
+            <div className="explain__bottom">
+              <h4>{explain}</h4>
+              <select
+                name={`p${no}`}
+                id={`p${no}`}
+                onChange={handleChange}
+                value={selectedProducts[`p${no}`]}
+              >
+                <option value={0}>선택하세요*필수</option>
+                {products.map((p, i) => (
+                  <>
+                    <option value={i + 1}>{p.product}</option>
+                  </>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
-}
+};
 
-function Total({ foodIdx, flowerIdx }) {
-  return (
-    <div>
-      {foodIdx && flowerIdx ? (
-        <h3>최종금액: {FOODS[foodIdx].price + FLOWERS[flowerIdx].price}</h3>
-      ) : (
-        <h3>모두 선택해주세요</h3>
-      )}
-    </div>
-  );
-}
 export default App;
