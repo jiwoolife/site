@@ -1,4 +1,5 @@
 @import "_mixins.scss";
+@import "_variables.scss";
 
 @font-face {
   font-family: "Gmarket Sans Bold";
@@ -22,11 +23,6 @@
 :root {
   font-family: "Gmarket Sans Medium";
 }
-$blue: #192b60;
-$beige: #fffdd7;
-$gray: #b1b5d0;
-$backGray: #ededed;
-$red: #a90103;
 
 h1 {
   font-size: 6.5vw;
@@ -135,7 +131,7 @@ body {
         }
       }
     }
-    .btn__result {
+    .btn__100 {
       border-radius: 10px;
       margin: 3vw 0;
       width: 95%;

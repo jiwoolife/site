@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { Result } from "./Result";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link,
   useLocation,
@@ -11,8 +11,8 @@ import {
   Redirect,
 } from "react-router-dom";
 ReactDOM.render(
-  <Router basename="/cherish">
-    <Route path="/" exact>
+  <Router basename="/">
+    <Route exact path="/">
       <App />
       {/* <Redirect to="/result" /> */}
     </Route>

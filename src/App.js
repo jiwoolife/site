@@ -56,7 +56,7 @@ const App = () => {
           />
         ))}
         <Link
-          className="btn__result"
+          className="btn__100"
           to={{
             pathname: "/result",
             search: `?products=${btoa(JSON.stringify(selectedProducts))}`,
@@ -103,10 +103,10 @@ const Product = ({
                 onChange={handleChange}
                 value={selectedProducts[`p${no}`]}
               >
-                <option value={0}>선택하세요*필수</option>
+                {/* <option value={0}>선택하세요*필수</option> */}
                 {products.map((p, i) => (
                   <>
-                    <option value={i + 1}>{p.product}</option>
+                    <option value={i}>{p.product}</option>
                   </>
                 ))}
               </select>

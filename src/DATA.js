@@ -124,3 +124,11 @@ export const DATA = [
     explain: "장지안내, 화장장 예약, 각종 증명서류 발급 등",
   },
 ];
+
+export const PREORDER = [
+  { title: "전국 협약장례식장 할인", content: "지역별 상이, 유선안내" },
+  { title: "장지 동행답사", content: "납골당, 수목장, 공원묘지 등" },
+  { title: "임종시 긴급이송(관내)", content: "앰뷸런스 운구이송" },
+  { title: "임관시 꽃관장식 서비스", content: "생화, 한지 꽃장식" },
+  { title: "발인시 운구인원 지원", content: "" },
+];
