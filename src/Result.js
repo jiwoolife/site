@@ -42,7 +42,7 @@ export const Result = () => {
       <header>
         <img
           className="logo"
-          src={require("./assets/logo_black.png")}
+          src={require("./assets/logo.png")}
           alt="none"
         ></img>
         <h1>자유 선택형 상조 견적 확인</h1>
@@ -73,25 +73,25 @@ export const Result = () => {
           ))}
         </section>
         <section className="price">
-          <h4>총 합</h4>
+          <h2>총 합</h2>
           <h2>₩{totalPrice}0000</h2>
         </section>
-        <section>
-          <ul>
-            <ol>
-              빈소, 음식, 안치실, 입관실 등 [병원], [장례식장] 시설 사용료는
-              포함되어 있지 않습니다.
-            </ol>
-            <ol>
-              장의차량, 리무진 운행시 도로 통행료는 고객 부담입니다.(초과거리
-              10km 당 20,000원)
-            </ol>
-            <ol>
-              장례복지사(도우미) 1인 1일 8시간 기준이며, 연장시 1시간당 1만원이
-              추가됩니다.
-            </ol>
-            <ol>지역 및 상품 구성에 따라 혜택이 상이할 수 있습니다.</ol>
-          </ul>
+        <section className="reference">
+          <h6>
+            - 빈소, 음식, 안치실, 입관실 등
+            <h6 className="h6__red">
+              [병원], [장례식장] 시설 사용료는 포함되어 있지 않습니다.
+            </h6>
+          </h6>
+          <h6>
+            - 장의차량, 리무진 운행시 도로 통행료는 고객 부담입니다.(초과거리
+            10km 당 20,000원)
+          </h6>
+          <h6>
+            - 장례복지사(도우미) 1인 1일 8시간 기준이며, 연장시 1시간당 1만원이
+            추가됩니다.
+          </h6>
+          <h6>- 지역 및 상품 구성에 따라 혜택이 상이할 수 있습니다.</h6>
         </section>
         <section className="btn__section">
           <div className="btn__wrapper">
@@ -102,7 +102,7 @@ export const Result = () => {
               <h2>카카오톡 공유하기</h2>
             </a>
           </div>
-          <a className="btn__100" href="tel:01096549799">
+          <a className="btn__100" href="tel:16669058">
             <h2>도움장례 접수/문의</h2>
           </a>
         </section>

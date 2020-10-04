@@ -34,7 +34,7 @@ const App = () => {
       <header>
         <img
           className="logo"
-          src={require("./assets/logo_black.png")}
+          src={require("./assets/logo.png")}
           alt="none"
         ></img>
         <h1>장례 규모에 맞춘 자유선택형 상조</h1>
@@ -87,16 +87,16 @@ const Product = ({
         <div className="content">
           <img
             className="picture"
-            src={require("./assets/picture_1.jpg")}
+            src={require(`./assets/img_${no}.png`)}
             alt="none"
           ></img>
           <div className="explain">
             <div className="explain__top">
               <h4 className="bold">제공내역</h4>
-              <h3>{products[0].product}</h3>
+              {/* <h3>{products[0].product}</h3> */}
+              <h4>{explain}</h4>
             </div>
             <div className="explain__bottom">
-              <h4>{explain}</h4>
               <select
                 name={`p${no}`}
                 id={`p${no}`}

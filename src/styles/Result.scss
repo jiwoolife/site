@@ -3,15 +3,25 @@
 main {
   section.result {
     width: 80%;
+    margin-top: 4vw;
+    h2 {
+      color: $blue;
+      margin-bottom: 2vw;
+    }
     .result__detail {
       display: flex;
       // justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid gray;
-      & > *:first-child {
-        flex: 2;
+      margin: 1vw 0;
+      h3 {
+        flex: 3;
+        font-family: Gmarket Sans Medium;
+        letter-spacing: -0.07em;
       }
-      & > *:last-child {
-        flex: 1;
+      h4 {
+        flex: 2;
+        letter-spacing: -0.07em;
       }
     }
     .result__detail:last-child {
@@ -19,11 +29,28 @@ main {
     }
   }
   section.price {
+    margin: 3vw 0;
     display: flex;
     align-items: center;
-    h2 {
-      margin-left: 1vw;
-      color: red;
+    h2:last-child {
+      margin-left: 2vw;
+      color: $red;
+      font-size: 7vw;
+    }
+  }
+  section.reference {
+    height: 25vw;
+    h6 {
+      font-size: 2.6vw;
+      margin: 1vw 5vw;
+      letter-spacing: -0.07em;
+      .h6__red {
+        display: inline;
+        margin: 0;
+        margin-left: 1vw;
+        color: $red;
+        font-family: Gmarket Sans Medium;
+      }
     }
   }
   section.btn__section {

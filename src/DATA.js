@@ -8,13 +8,25 @@ export const DATA = [
   {
     no: 2,
     category: "장례복지사(도우미)",
-    products: [{ product: "인원수 선택(0~10)", price: 8 }],
+    products: [
+      { product: "0명", price: 0 },
+      { product: "1명", price: 8 },
+      { product: "2명", price: 16 },
+      { product: "3명", price: 24 },
+      { product: "4명", price: 32 },
+      { product: "5명", price: 40 },
+      { product: "6명", price: 48 },
+      { product: "7명", price: 56 },
+      { product: "8명", price: 64 },
+      { product: "9명", price: 72 },
+      { product: "10명", price: 80 },
+    ],
     explain: "1인 1일 8시간 기준",
   },
   {
     no: 3,
     category: "장례용품",
-    products: [{ product: "입관, 빈소, 위생용품 일체(필수)", price: 0 }],
+    products: [{ product: "입관, 빈소, 위생용품 일체 (필수)", price: 0 }],
     explain:
       "관보, 명정, 결관보, 한지, 안치대, 입관부속, 알코올, 탈지면, 위생티슈 파우다, 소취제, 수시포, 수시매트. 수시배게 등",
   },
@@ -32,7 +44,7 @@ export const DATA = [
     no: 5,
     category: "횡대(매장)",
     products: [
-      { product: "선택안함(매장시에만 필요)", price: 0 },
+      { product: "선택안함 (매장시에만 필요)", price: 0 },
       { product: "집성목", price: 9 },
       { product: "통판목", price: 19 },
     ],
@@ -49,13 +61,14 @@ export const DATA = [
       { product: "매장용 고급수의", price: 35 },
       { product: "매장용 최고급수의", price: 60 },
     ],
-    explain: "고인께 입혀드리는 옷: 대마 / 저마 / 기계직 / 수제직",
+    explain: "고인께 입혀드리는 옷: 대마/저마/기계직/수제직",
   },
   {
     no: 7,
     category: "유골함",
     products: [
-      { product: "산골함(목함)", price: 2 },
+      { product: "선택안함", price: 0 },
+      { product: "산골함 (목함)", price: 2 },
       { product: "도자기 유골함", price: 20 },
       { product: "고급 도자기 유골함", price: 50 },
     ],
@@ -64,13 +77,37 @@ export const DATA = [
   {
     no: 8,
     category: "남자상복",
-    products: [{ product: "수량선택(0~10)", price: 3 }],
+    products: [
+      { product: "0벌", price: 0 },
+      { product: "1벌", price: 3 },
+      { product: "2벌", price: 6 },
+      { product: "3벌", price: 9 },
+      { product: "4벌", price: 12 },
+      { product: "5벌", price: 15 },
+      { product: "6벌", price: 18 },
+      { product: "7벌", price: 21 },
+      { product: "8벌", price: 24 },
+      { product: "9벌", price: 27 },
+      { product: "10벌", price: 30 },
+    ],
     explain: "검정색 정장 대여",
   },
   {
     no: 9,
     category: "여자상복",
-    products: [{ product: "수량선택(0~10)", price: 2 }],
+    products: [
+      { product: "0벌", price: 0 },
+      { product: "1벌", price: 2 },
+      { product: "2벌", price: 4 },
+      { product: "3벌", price: 6 },
+      { product: "4벌", price: 8 },
+      { product: "5벌", price: 10 },
+      { product: "6벌", price: 12 },
+      { product: "7벌", price: 14 },
+      { product: "8벌", price: 16 },
+      { product: "9벌", price: 18 },
+      { product: "10벌", price: 20 },
+    ],
     explain: "검정색 개량한복 대여",
   },
   {
@@ -121,7 +158,8 @@ export const DATA = [
       { product: "영정사진", price: 0 },
       { product: "일회용품 / 세면도구", price: 0 },
     ],
-    explain: "장지안내, 화장장 예약, 각종 증명서류 발급 등",
+    explain:
+      "행정서비스(장지안내, 화장장 예약, 각종 증명서류 발급 등), 영정사진(기본규격), 일회용품(접객용품, 세면도구 등) 중 택 1",
   },
 ];
 
