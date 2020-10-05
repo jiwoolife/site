@@ -85,11 +85,17 @@ const Product = ({
           <h2>{category}</h2>
         </div>
         <div className="content">
-          <img
+          {/* <img
             className="picture"
             src={require(`./assets/img_${no}.png`)}
             alt="none"
-          ></img>
+          ></img> */}
+          <div
+            className="picture"
+            style={{
+              backgroundImage: `url(${require(`./assets/img_${no}.png`)})`,
+            }}
+          />
           <div className="explain">
             <div className="explain__top">
               <h4 className="bold">제공내역</h4>

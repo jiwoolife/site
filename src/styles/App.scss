@@ -87,26 +87,39 @@ body {
           display: flex;
           // justify-content: center;
           align-items: center;
+          // .picture {
+          //   margin-left: 2vw;
+          //   width: 30vw;
+          //   max-width: 252px;
+          //   height: 30vw;
+          //   max-height: 252px;
+          //   border-radius: 50px;
+          //   margin-right: 2vw;
+          // }
           .picture {
-            margin-left: 2vw;
             width: 30vw;
-            max-width: 252px;
             height: 30vw;
-            max-height: 252px;
-            border-radius: 50px;
+            background-size: cover;
+            margin-left: 2vw;
             margin-right: 2vw;
+
+            // background-color: red;
           }
           .explain {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 30vw;
+            width: 56vw;
             margin-left: 1vw;
             margin-right: 2vw;
             .explain__top {
               // border-bottom: 1px solid $gray;
               // flex: 1;
               margin-top: 3vw;
+              h4 {
+                font-size: 3vw;
+              }
             }
             .explain__bottom {
               margin-bottom: 3vw;
