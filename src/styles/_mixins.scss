@@ -1,12 +1,16 @@
 @mixin response-over($max-width) {
   @media screen and (min-width: $max-width + 1) {
     $max-vw: $max-width / 100;
+    // App
     h1 {
-      font-size: 6.5 * $max-vw;
+      font-size: 6 * $max-vw;
+      font-family: "Gmarket Sans Bold";
+      color: $beige;
       margin: 1 * $max-vw 0;
     }
     h2 {
       font-size: 5 * $max-vw;
+      font-family: "Gmarket Sans Bold";
       margin: 1 * $max-vw 0;
     }
     h3 {
@@ -14,59 +18,277 @@
       margin: 1 * $max-vw 0;
     }
     h4 {
-      font-size: 3.6 * $max-vw;
+      font-size: 3.4 * $max-vw;
       margin: 1 * $max-vw 0;
+    }
+    .bold {
+      font-family: "Gmarket Sans Bold";
     }
     h5 {
       font-size: 2 * $max-vw;
-      margin: 1 * $max-vw 0;
+      text-align: center;
+      color: $gray;
+      margin: 1 * $max-vw 3 * $max-vw;
     }
     .number {
+      background-color: $blue;
       width: 5 * $max-vw;
       height: 5 * $max-vw;
+      border-radius: 50%;
+      color: #fdfff7;
       font-size: 3 * $max-vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-right: 1 * $max-vw;
     }
+
     body {
+      margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       #root {
         max-width: $max-width;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
         header {
-          // padding: 2 * $max-vw 2 * $max-vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: $blue;
+          width: 100%;
           height: 33 * $max-vw;
           .logo {
-            width: 40 * $max-vw;
+            width: 25 * $max-vw;
+            margin-top: 6 * $max-vw;
+            margin-bottom: 2 * $max-vw;
           }
         }
         main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          section.product:nth-child(2n -1) {
+            background-color: $backGray;
+          }
           section.product {
             padding: 2 * $max-vw 0;
+            width: 100%;
             .subtitle {
+              display: flex;
+              align-items: center;
               margin-left: 2 * $max-vw;
-            }
-            .picture {
-              margin-left: 2 * $max-vw;
-              width: 30 * $max-vw;
-              height: 30 * $max-vw;
-              margin-right: 2 * $max-vw;
             }
             .content {
               height: 30 * $max-vw;
-              .explain__bottom {
-                flex: 1;
-                select {
-                  width: 50 * $max-vw;
-                  height: 5 * $max-vw;
-                  font-size: 2 * $max-vw;
+              display: flex;
+              // justify-content: center;
+              align-items: center;
+              // .picture {
+              //   margin-left: 2 * $max-vw;
+              //   width: 30 * $max-vw;
+              //   max-width: 252px;
+              //   height: 30 * $max-vw;
+              //   max-height: 252px;
+              //   border-radius: 50px;
+              //   margin-right: 2 * $max-vw;
+              // }
+              .picture {
+                width: 30 * $max-vw;
+                height: 30 * $max-vw;
+                background-size: cover;
+                margin-left: 2 * $max-vw;
+                margin-right: 2 * $max-vw;
+
+                // background-color: red;
+              }
+              .explain {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 30 * $max-vw;
+                width: 56 * $max-vw;
+                margin-left: 1 * $max-vw;
+                margin-right: 2 * $max-vw;
+                .explain__top {
+                  // border-bottom: 1px solid $gray;
+                  // flex: 1;
+                  margin-top: 3 * $max-vw;
+                  h4 {
+                    font-size: 3 * $max-vw;
+                  }
+                  .etc h4 {
+                    font-size: 2.5 * $max-vw;
+                    &:nth-child(2n) {
+                      text-indent: 4%;
+                    }
+                  }
+                }
+                .explain__bottom {
+                  margin-bottom: 3 * $max-vw;
+                  // flex: 1;
+                  select {
+                    width: 50 * $max-vw;
+                    max-width: 418px;
+                    height: 7 * $max-vw;
+                    // max-height: 40px;
+                    font-size: 2.6 * $max-vw;
+                    border-radius: 10px;
+                    padding-left: 2 * $max-vw;
+                  }
                 }
               }
             }
           }
-          .btn__result {
-            margin: 3 * $max-vw 0;
+        }
+        .btn__100 {
+          border-radius: 10px;
+          margin: 3 * $max-vw 0;
+          width: 95%;
+          height: 10 * $max-vw;
+          background-color: $red;
+          color: white;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    // Result
+    main {
+      section.result {
+        width: 80%;
+        margin-top: 4 * $max-vw;
+        h2 {
+          color: $blue;
+          margin-bottom: 2 * $max-vw;
+        }
+        .result__detail {
+          display: flex;
+          // justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid gray;
+          margin: 1 * $max-vw 0;
+          h3 {
+            flex: 3;
+            font-family: Gmarket Sans Medium;
+            letter-spacing: -0.07em;
+          }
+          h4 {
+            flex: 2;
+            letter-spacing: -0.07em;
+          }
+        }
+        .result__detail:last-child {
+          border-bottom: none;
+        }
+      }
+      section.price {
+        margin: 3 * $max-vw 0;
+        display: flex;
+        align-items: center;
+        h2:last-child {
+          margin-left: 2 * $max-vw;
+          color: $red;
+          font-size: 7 * $max-vw;
+        }
+      }
+      section.reference {
+        height: 25 * $max-vw;
+        h6 {
+          font-size: 2.3 * $max-vw;
+          margin: 1 * $max-vw 5 * $max-vw;
+          letter-spacing: -0.07em;
+          .mark__red {
+            color: $red;
+            font-family: Gmarket Sans Medium;
+            background: none;
+          }
+        }
+      }
+      section.btn__section {
+        width: 100%;
+        height: 30 * $max-vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // background-color: peru;
+        align-items: center;
+        .btn__wrapper {
+          display: flex;
+          width: 95%;
+          .btn__50 {
+            border-radius: 10px;
+            flex: 1;
             height: 10 * $max-vw;
+            background-color: $yellow;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:first-child {
+              background-color: $blue;
+              margin-right: 1 * $max-vw;
+            }
+          }
+        }
+        a:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    footer {
+      background-color: $blue;
+      width: 100%;
+      .CS {
+        margin: 5 * $max-vw 2 * $max-vw;
+        display: flex;
+        .left__wrapper {
+          flex: 2;
+          border-right: solid 1px $gray;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-right: 2 * $max-vw;
+          h4 {
+            color: $gray;
+            letter-spacing: -0.07em;
+            font-style: italic;
+          }
+          h1 {
+            font-style: italic;
+            margin: 0;
+            &:last-child {
+              align-self: flex-end;
+            }
+          }
+        }
+        .right__wrapper {
+          flex: 5;
+          margin-left: 2 * $max-vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          h2 {
+            color: $beige;
+            font-size: 4.5 * $max-vw;
+          }
+          h4 {
+            font-size: 3 * $max-vw;
+            letter-spacing: -0.1em;
+            color: white;
+            margin: 0.3 * $max-vw 0;
+            .yellow {
+              background: none;
+              color: yellow;
+            }
           }
         }
       }

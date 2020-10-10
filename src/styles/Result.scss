@@ -1,3 +1,4 @@
+@import "_mixins.scss";
 @import "_variables.scss";
 
 main {
@@ -133,3 +134,4 @@ footer {
     }
   }
 }
+@include response-over(1024px);
