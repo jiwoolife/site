@@ -11,6 +11,7 @@ import { DATA } from "./DATA.js";
 
 const App = () => {
   const [selectedProducts, setSelectedProducts] = useState({
+    p0: 0,
     p1: 0,
     p2: 0,
     p3: 0,
@@ -24,7 +25,7 @@ const App = () => {
     p11: 0,
     p12: 0,
     p13: 0,
-    p14: 0,
+    // p14: 0,
   });
   const handleChange = ({ target: { value, id } }) => {
     setSelectedProducts((prev) => ({ ...prev, [id]: value }));
@@ -81,7 +82,7 @@ const Product = ({
     <>
       <section className="product">
         <div className="subtitle">
-          <div className="number">{no}</div>
+          <div className="number bold">{no}</div>
           <h2>{category}</h2>
         </div>
         <div className="content">
@@ -98,25 +99,40 @@ const Product = ({
           />
           <div className="explain">
             <div className="explain__top">
-              <h4 className="bold">제공내역</h4>
+              {no === 0 || no === 14 ? null : (
+                <h4 className="bold">제공내역</h4>
+              )}
               {/* <h3>{products[0].product}</h3> */}
-              <h4>{explain}</h4>
+              {no === 14 ? (
+                <div className="etc">
+                  {explain.map((e) => (
+                    <>
+                      <h4>{e.title}</h4>
+                      <h4>{e.content}</h4>
+                    </>
+                  ))}
+                </div>
+              ) : (
+                <h4>{explain}</h4>
+              )}
             </div>
-            <div className="explain__bottom">
-              <select
-                name={`p${no}`}
-                id={`p${no}`}
-                onChange={handleChange}
-                value={selectedProducts[`p${no}`]}
-              >
-                {/* <option value={0}>선택하세요*필수</option> */}
-                {products.map((p, i) => (
-                  <>
-                    <option value={i}>{p.product}</option>
-                  </>
-                ))}
-              </select>
-            </div>
+            {no === 14 ? null : (
+              <div className="explain__bottom">
+                <select
+                  name={`p${no}`}
+                  id={`p${no}`}
+                  onChange={handleChange}
+                  value={selectedProducts[`p${no}`]}
+                >
+                  {/* <option value={0}>선택하세요*필수</option> */}
+                  {products.map((p, i) => (
+                    <>
+                      <option value={i}>{p.product}</option>
+                    </>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
         </div>
       </section>

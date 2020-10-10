@@ -16,6 +16,7 @@ const useQuery = () => {
 
 export const Result = () => {
   const products = JSON.parse(atob(useQuery().get("products")));
+  console.log(products);
   const totalPrice = Object.keys(products).reduce((acc, curr, i) => {
     return acc + DATA[i].products[products[curr]].price;
   }, 0);
@@ -51,14 +52,14 @@ export const Result = () => {
       <main>
         <section className="result">
           <h2>상조 서비스</h2>
-          {DATA.map((d, i) => (
+          {Object.keys(products).map((p, i) => (
             <div className="result__detail">
-              <h3>{d.category}</h3>
+              <h3>{DATA[i].category}</h3>
               <h4>
                 {/* {products[`p${i + 1}`] === 0
                   ? "선택안함"
                   : DATA[i].products[products[`p${i + 1}`] - 1].product} */}
-                {DATA[i].products[products[`p${i + 1}`]].product}
+                {DATA[i].products[products[p]].product}
               </h4>
             </div>
           ))}
@@ -74,15 +75,16 @@ export const Result = () => {
         </section>
         <section className="price">
           <h2>총 합</h2>
-          <h2>₩{totalPrice}0000</h2>
+          {totalPrice < 100 ? (
+            <h2>₩{totalPrice}0,000</h2>
+          ) : (
+            <h2>
+              ₩{Math.floor(totalPrice / 100)},{totalPrice % 100}0,000
+            </h2>
+          )}
         </section>
         <section className="reference">
-          <h6>
-            - 빈소, 음식, 안치실, 입관실 등
-            <h6 className="h6__red">
-              [병원], [장례식장] 시설 사용료는 포함되어 있지 않습니다.
-            </h6>
-          </h6>
+          <h6>- 빈소, 음식, 안치실, 입관실 등 <mark className="mark__red"> [병원], [장례식장] 시설 사용료는 포함되어 있지 않습니다.</mark></h6>
           <h6>
             - 장의차량, 리무진 운행시 도로 통행료는 고객 부담입니다.(초과거리
             10km 당 20,000원)
@@ -107,6 +109,20 @@ export const Result = () => {
           </a>
         </section>
       </main>
+      <footer>
+        <section className="CS">
+          <div className="left__wrapper">
+            <h4 className="bold">24시 고객센터</h4>
+            <h1>1666</h1>
+            <h1>-9058</h1>
+          </div>
+          <div className="right__wrapper">
+            <h2>장례접수+맞춤 컨설팅 동시 진행</h2>
+            <h4>장례발생 전 사전상담을 하시면 진행이 더 원만하며</h4>
+            <h4><mark className="yellow">장례식장, 병원과 겹치는 중복지출을 방지</mark>할 수 있습니다.</h4>
+          </div>
+        </section>
+      </footer>
     </>
   );
 };

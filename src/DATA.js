@@ -1,5 +1,17 @@
 export const DATA = [
   {
+    no: 0,
+    category: "예상 장례규모(조문객 수)",
+    products: [
+      { product: "조문객 10명 미만", price: 0 },
+      { product: "조문객 100명 미만", price: 0 },
+      { product: "조문객 200명 미만", price: 0 },
+      { product: "조문객 300명 미만", price: 0 },
+      { product: "조문객 300명 이상", price: 0 },
+    ],
+    explain: "예상 조문객 수를 선택",
+  },
+  {
     no: 1,
     category: "장례지도사",
     products: [{ product: "장례지도사 + 입관상례사(필수)", price: 47 }],
@@ -9,17 +21,17 @@ export const DATA = [
     no: 2,
     category: "장례복지사(도우미)",
     products: [
-      { product: "0명", price: 0 },
-      { product: "1명", price: 8 },
-      { product: "2명", price: 16 },
-      { product: "3명", price: 24 },
-      { product: "4명", price: 32 },
-      { product: "5명", price: 40 },
-      { product: "6명", price: 48 },
-      { product: "7명", price: 56 },
-      { product: "8명", price: 64 },
-      { product: "9명", price: 72 },
-      { product: "10명", price: 80 },
+      { product: "선택안함 (0명)", price: 0 },
+      { product: "1명", price: 9 },
+      { product: "2명", price: 18 },
+      { product: "3명", price: 27 },
+      { product: "4명", price: 36 },
+      { product: "5명", price: 45 },
+      { product: "6명", price: 54 },
+      { product: "7명", price: 63 },
+      { product: "8명", price: 72 },
+      { product: "9명", price: 81 },
+      { product: "10명", price: 90 },
     ],
     explain: "1인 1일 8시간 기준",
   },
@@ -78,7 +90,7 @@ export const DATA = [
     no: 8,
     category: "남자상복",
     products: [
-      { product: "0벌", price: 2 },
+      { product: "선택안함 (0벌)", price: 2 },
       { product: "1벌", price: 2 },
       { product: "2벌", price: 2 },
       { product: "3벌", price: 5 },
@@ -96,7 +108,7 @@ export const DATA = [
     no: 9,
     category: "여자상복",
     products: [
-      { product: "0벌", price: 0 },
+      { product: "선택안함 (0벌)", price: 0 },
       { product: "1벌", price: 0 },
       { product: "2벌", price: 2 },
       { product: "3벌", price: 4 },
@@ -159,7 +171,15 @@ export const DATA = [
       { product: "일회용품 / 세면도구", price: 0 },
     ],
     explain:
-      "행정서비스(장지안내, 화장장 예약, 각종 증명서류 발급 등), 영정사진(기본규격), 일회용품(접객용품, 세면도구 등) 중 택 1",
+      // "행정서비스(장지안내, 화장장 예약, 각종 증명서류 발급 등), 영정사진(기본규격), 일회용품(접객용품, 세면도구 등) 중 택 1",
+      [
+        {
+          title: "•행정서비스",
+          content: "장지안내+화장장예약+각종증명서류 발급 등",
+        },
+        { title: "•영정사진", content: "기본규격" },
+        { title: "•일회용 빈소용품", content: "접객용품+세면도구 등" },
+      ],
   },
 ];
 
