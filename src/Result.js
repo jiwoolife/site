@@ -16,10 +16,13 @@ const useQuery = () => {
 
 export const Result = () => {
   const products = JSON.parse(atob(useQuery().get("products")));
-  console.log(products);
   const totalPrice = Object.keys(products).reduce((acc, curr, i) => {
     return acc + DATA[i].products[products[curr]].price;
   }, 0);
+  const totalPriceWithComma = new Intl.NumberFormat().format(totalPrice*10000);
+  // console.log(products);
+  // console.log(totalPrice);
+  // console.log(totalPriceWithComma);
   const shareKakao = () => {
     console.log(window.location.href);
     window.Kakao.Link.sendDefault({
@@ -79,7 +82,7 @@ export const Result = () => {
             <h2>₩{totalPrice}0,000</h2>
           ) : (
             <h2>
-              ₩{Math.floor(totalPrice / 100)},{totalPrice % 100}0,000
+              ₩{totalPriceWithComma}
             </h2>
           )}
         </section>
