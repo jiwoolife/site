@@ -29,9 +29,9 @@ export const Result = () => {
       objectType: "feed",
       content: {
         title: "도움장례",
-        description: "#장례 #도움장례",
+        description: "#상조다이렉트 #자유선택형상조",
         imageUrl:
-          "https://github.com/devgony/cherish/blob/master/src/assets/picture_1.jpg?raw=true",
+          "https://github.com/devgony/cherish/blob/master/src/assets/img_0.png?raw=true",
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
