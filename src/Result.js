@@ -31,7 +31,7 @@ export const Result = () => {
         title: "도움장례",
         description: "#상조다이렉트 #자유선택형상조",
         imageUrl:
-          "https://github.com/devgony/cherish/blob/master/src/assets/thumbnail.png?raw=true",
+          "https://github.com/jiwoolife/site/blob/master/src/assets/thumbnail.png?raw=true",
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
