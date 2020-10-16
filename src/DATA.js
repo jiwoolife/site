@@ -5,9 +5,9 @@ export const DATA = [
     products: [
       { product: "조문객 10명 미만", price: 0 },
       { product: "조문객 100명 미만", price: 11 },
-      { product: "조문객 200명 미만", price: 21 },
-      { product: "조문객 300명 미만", price: 21 },
-      { product: "조문객 300명 이상", price: 41 },
+      { product: "조문객 200명 미만", price: 31 },
+      { product: "조문객 300명 미만", price: 41 },
+      { product: "조문객 300명 이상", price: 51 },
     ],
     explain: "예상 조문객 수를 선택",
   },
