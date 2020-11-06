@@ -30,6 +30,12 @@ const App = () => {
   const handleChange = ({ target: { value, id } }) => {
     setSelectedProducts((prev) => ({ ...prev, [id]: value }));
   };
+  // const handleChange = ({ target: { value, id } }) => {
+  //   setSelectedProducts((prev) => {
+  //     prev[id] = value;
+  //     return prev;
+  //   });
+  // };
   return (
     <>
       <header>

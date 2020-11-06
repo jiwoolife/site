@@ -15,12 +15,19 @@ const useQuery = () => {
 };
 
 export const Result = () => {
-  const products = JSON.parse(atob(useQuery().get("products")));
-  const totalPrice = Object.keys(products).reduce((acc, curr, i) => {
-    return acc + DATA[i].products[products[curr]].price;
+  let products = JSON.parse(atob(useQuery().get("products")));
+  // console.log(JSON.stringify(products));
+  const orderedProducts = Object.keys(products).sort((a, b) => a.replace("p","") - b.replace("p","")).reduce((acc, curr) => {
+    acc[curr] = parseInt(products[curr]);
+    return acc;
+  }, {});
+  // console.log(JSON.stringify(orderedProducts));
+  const totalPrice = Object.keys(orderedProducts).reduce((acc, curr, i) => {
+    // console.log(curr, orderedProducts[curr], DATA[i].products)
+    return acc + DATA[i].products[orderedProducts[curr]].price;
   }, 0);
   const totalPriceWithComma = new Intl.NumberFormat().format(totalPrice*10000);
-  // console.log(products);
+  // console.log(orderedProducts);
   // console.log(totalPrice);
   // console.log(totalPriceWithComma);
   const shareKakao = () => {
@@ -55,14 +62,14 @@ export const Result = () => {
       <main>
         <section className="result">
           <h2>상조 서비스</h2>
-          {Object.keys(products).map((p, i) => (
+          {Object.keys(orderedProducts).map((p, i) => (
             <div className="result__detail">
               <h3>{DATA[i].category}</h3>
               <h4>
-                {/* {products[`p${i + 1}`] === 0
+                {/* {orderedProducts[`p${i + 1}`] === 0
                   ? "선택안함"
-                  : DATA[i].products[products[`p${i + 1}`] - 1].product} */}
-                {DATA[i].products[products[p]].product}
+                  : DATA[i].products[orderedProducts[`p${i + 1}`] - 1].product} */}
+                {DATA[i].products[orderedProducts[p]].product}
               </h4>
             </div>
           ))}
