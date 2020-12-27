@@ -80,7 +80,7 @@ export const DATA = [
     category: "유골함",
     products: [
       { product: "선택안함", price: 0 },
-      { product: "산골함 (목함)", price: 2 },
+      { product: "산골함 (목함)", price: 0 },
       { product: "도자기 유골함", price: 20 },
       { product: "고급 도자기 유골함", price: 50 },
     ],
@@ -110,7 +110,7 @@ export const DATA = [
     products: [
       { product: "선택안함 (0벌)", price: 0 },
       { product: "1벌", price: 0 },
-      { product: "2벌", price: 2 },
+      { product: "2벌", price: 0 },
       { product: "3벌", price: 4 },
       { product: "4벌", price: 6 },
       { product: "5벌", price: 8 },
