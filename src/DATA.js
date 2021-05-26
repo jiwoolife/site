@@ -168,7 +168,7 @@ export const DATA = [
     products: [
       { product: "행정서비스", price: 0 },
       { product: "영정사진", price: 0 },
-      { product: "일회용품 / 세면도구", price: 0 },
+      // { product: "일회용품 / 세면도구", price: 0 },
     ],
     explain:
       // "행정서비스(장지안내, 화장장 예약, 각종 증명서류 발급 등), 영정사진(기본규격), 일회용품(접객용품, 세면도구 등) 중 택 1",
@@ -178,7 +178,7 @@ export const DATA = [
           content: "장지안내+화장장예약+각종증명서류 발급 등",
         },
         { title: "•영정사진", content: "기본규격" },
-        { title: "•일회용 빈소용품", content: "접객용품+세면도구 등" },
+        // { title: "•일회용 빈소용품", content: "접객용품+세면도구 등" },
       ],
   },
 ];
